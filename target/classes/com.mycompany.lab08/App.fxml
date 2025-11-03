@@ -9,12 +9,12 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="480.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.AppController">
+<BorderPane prefHeight="480.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.lab08.AppController">
    <opaqueInsets>
       <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
    </opaqueInsets>
    <center>
-      <Pane id="drawingAreaPane" onDragDetected="#drawingAreaMouseDragged" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <Pane id="drawingAreaPane" fx:id="drawingAreaPane" onDragDetected="#drawingAreaMouseDragged" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <padding>
             <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
          </padding>
@@ -54,8 +54,8 @@
                   </VBox>
                </content>
             </TitledPane>
-            <Button id="undoBtn" mnemonicParsing="false" onAction="#undoButtonPressed" prefWidth="105.0" text="UNDO" />
-            <Button id="clearBtn" mnemonicParsing="false" onAction="#clearButtonPressed" prefWidth="107.0" text="CLEAR" />
+            <Button id="undoBtn" fx:id="undoBtn" mnemonicParsing="false" onAction="#undoButtonPressed" prefWidth="105.0" text="UNDO" />
+            <Button id="clearBtn" fx:id="clearBtn" mnemonicParsing="false" onAction="#clearButtonPressed" prefWidth="107.0" text="CLEAR" />
          </children>
       </VBox>
    </left>

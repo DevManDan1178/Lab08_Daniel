@@ -10,9 +10,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
+import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 /**
  * FXML Controller class
  *
@@ -25,14 +28,40 @@ public class AppController implements Initializable {
     private ToggleGroup colorToggle;
     @FXML
     private ToggleGroup sizeToggle;
-    //@FXML
-    //private Pane drawingAreaPane;
+    @FXML
+    private Button undoBtn;
+    @FXML
+    private Button clearBtn;
+    @FXML
+    private Pane drawingAreaPane;
+    @FXML
+    private RadioButton blackRadio;
+    @FXML
+    private RadioButton redRadio;
+    @FXML
+    private RadioButton greenRadio;
+    @FXML
+    private RadioButton blueRadio;
+    @FXML
+    private RadioButton smallRadio;
+    @FXML
+    private RadioButton mediumRadio;
+    @FXML
+    private RadioButton largeRadio;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        blackRadio.setUserData(Color.BLACK);
+        redRadio.setUserData(Color.RED);
+        greenRadio.setUserData(Color.GREEN);
+        blueRadio.setUserData(Color.BLUE);
+        smallRadio.setUserData(PenSize.SMALL);
+        mediumRadio.setUserData(PenSize.MEDIUM);
+        largeRadio.setUserData(PenSize.LARGE);
+        
     }    
     
     @FXML
@@ -47,4 +76,12 @@ public class AppController implements Initializable {
     private void drawingAreaMouseDragged(MouseEvent event) {
     }
 
+    private enum PenSize {
+        SMALL(2),
+        MEDIUM(4),
+        LARGE(6);
+        private int radius;
+        private PenSize(int radius) {this.radius = radius;}
+        public int getRadius() {return radius;}
+    }
 }
