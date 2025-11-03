@@ -14,7 +14,7 @@
       <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
    </opaqueInsets>
    <center>
-      <Pane id="drawingAreaPane" fx:id="drawingAreaPane" onDragDetected="#drawingAreaMouseDragged" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <Pane id="drawingAreaPane" fx:id="drawingAreaPane" onMouseDragged="#drawingAreaMouseDragged" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <padding>
             <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
          </padding>
@@ -27,14 +27,14 @@
                <content>
                   <VBox prefHeight="155.0" prefWidth="157.0" spacing="25.0">
                      <children>
-                        <RadioButton fx:id="blackRadio" mnemonicParsing="false" text="BLACK">
+                        <RadioButton fx:id="blackRadio" mnemonicParsing="false" onAction="#colorRadioButtonSelected" text="BLACK">
                            <toggleGroup>
                               <ToggleGroup fx:id="colorToggle" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="redRadio" mnemonicParsing="false" text="RED" toggleGroup="$colorToggle" />
-                        <RadioButton fx:id="greenRadio" mnemonicParsing="false" text="GREEN" toggleGroup="$colorToggle" />
-                        <RadioButton fx:id="blueRadio" mnemonicParsing="false" text="BLUE" toggleGroup="$colorToggle" />
+                        <RadioButton fx:id="redRadio" mnemonicParsing="false" onAction="#colorRadioButtonSelected" text="RED" toggleGroup="$colorToggle" />
+                        <RadioButton fx:id="greenRadio" mnemonicParsing="false" onAction="#colorRadioButtonSelected" text="GREEN" toggleGroup="$colorToggle" />
+                        <RadioButton fx:id="blueRadio" mnemonicParsing="false" onAction="#colorRadioButtonSelected" text="BLUE" toggleGroup="$colorToggle" />
                      </children>
                   </VBox>
                </content>
@@ -43,13 +43,13 @@
                <content>
                   <VBox prefHeight="141.0" prefWidth="157.0" spacing="25.0">
                      <children>
-                        <RadioButton fx:id="smallRadio" mnemonicParsing="false" text="SMALL">
+                        <RadioButton fx:id="smallRadio" mnemonicParsing="false" onAction="#sizeRadioButtonSelected" text="SMALL">
                            <toggleGroup>
                               <ToggleGroup fx:id="sizeToggle" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="mediumRadio" mnemonicParsing="false" text="MEDIUM" toggleGroup="$sizeToggle" />
-                        <RadioButton fx:id="largeRadio" mnemonicParsing="false" text="LARGE" toggleGroup="$sizeToggle" />
+                        <RadioButton fx:id="mediumRadio" mnemonicParsing="false" onAction="#sizeRadioButtonSelected" text="MEDIUM" toggleGroup="$sizeToggle" />
+                        <RadioButton fx:id="largeRadio" mnemonicParsing="false" onAction="#sizeRadioButtonSelected" text="LARGE" toggleGroup="$sizeToggle" />
                      </children>
                   </VBox>
                </content>
