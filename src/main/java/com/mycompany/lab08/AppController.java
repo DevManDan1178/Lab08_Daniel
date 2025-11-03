@@ -54,9 +54,10 @@ public class AppController implements Initializable {
     
     private PenSize paintSize = PenSize.SMALL;
     private Color paintColor = Color.BLACK;
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         blackRadio.setUserData(Color.BLACK);
         redRadio.setUserData(Color.RED);
         greenRadio.setUserData(Color.GREEN);
@@ -87,8 +88,10 @@ public class AppController implements Initializable {
     private void drawingAreaMouseDragged(MouseEvent event) {
         double boardWidth = drawingAreaPane.getWidth(), boardHeight = drawingAreaPane.getHeight();
         double mouseX = event.getX(), mouseY = event.getY();
-        //Check if inside pane
-        if (mouseX < 0 || mouseY < 0 || mouseX > boardWidth || mouseY > boardHeight) {
+        double relativeX = mouseX - drawingAreaPane.getTranslateX(), relativeY = mouseY - drawingAreaPane.getTranslateY();
+        
+        //Check if relative position of event is outside of pane's bounds, if yes, it's invalid so return
+        if (relativeX < 0 || relativeY < 0 || relativeX > boardWidth || relativeY > boardHeight) {
             return;
         }
         
@@ -116,7 +119,7 @@ public class AppController implements Initializable {
         SMALL(2),
         MEDIUM(4),
         LARGE(6);
-        private int radius;
+        private final int radius;
         private PenSize(int radius) {this.radius = radius;}
         public int getRadius() {return radius;}
     }
