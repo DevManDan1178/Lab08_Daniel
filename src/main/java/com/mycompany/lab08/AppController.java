@@ -18,6 +18,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 /**
  * FXML Controller class
  *
@@ -51,8 +52,8 @@ public class AppController implements Initializable {
     @FXML
     private RadioButton largeRadio;
     
-    private PenSize paintSize;
-    private Color paintColor;
+    private PenSize paintSize = PenSize.SMALL;
+    private Color paintColor = Color.BLACK;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -63,6 +64,8 @@ public class AppController implements Initializable {
         smallRadio.setUserData(PenSize.SMALL);
         mediumRadio.setUserData(PenSize.MEDIUM);
         largeRadio.setUserData(PenSize.LARGE);
+        blackRadio.setSelected(true);
+        smallRadio.setSelected(true);
     }    
    
     
@@ -82,6 +85,19 @@ public class AppController implements Initializable {
 
     @FXML
     private void drawingAreaMouseDragged(MouseEvent event) {
+        double boardWidth = drawingAreaPane.getWidth(), boardHeight = drawingAreaPane.getHeight();
+        double mouseX = event.getX(), mouseY = event.getY();
+        //Check if inside pane
+        if (mouseX < 0 || mouseY < 0 || mouseX > boardWidth || mouseY > boardHeight) {
+            return;
+        }
+        
+        //Draw circle
+        Circle circle = new Circle(mouseX, mouseY, paintSize.getRadius());
+        circle.setFill(paintColor);
+        circle.setStroke(paintColor);
+        drawingAreaPane.getChildren().add(circle);
+        
     }
 
     @FXML
