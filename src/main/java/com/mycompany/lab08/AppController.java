@@ -6,8 +6,13 @@ package com.mycompany.lab08;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 /**
  * FXML Controller class
  *
@@ -15,6 +20,13 @@ import javafx.fxml.Initializable;
  */
 public class AppController implements Initializable {
 
+
+    @FXML
+    private ToggleGroup colorToggle;
+    @FXML
+    private ToggleGroup sizeToggle;
+    //@FXML
+    //private Pane drawingAreaPane;
     /**
      * Initializes the controller class.
      */
@@ -23,4 +35,16 @@ public class AppController implements Initializable {
         // TODO
     }    
     
+    @FXML
+    private void undoButtonPressed(ActionEvent event) {
+    }
+
+    @FXML
+    private void clearButtonPressed(ActionEvent event) {
+    }
+
+    @FXML
+    private void drawingAreaMouseDragged(MouseEvent event) {
+    }
+
 }
